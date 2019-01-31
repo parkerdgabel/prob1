@@ -9,13 +9,22 @@ int _isFactorial(int currentFactorial, int nextNumber, int n) {
 int main() {
     int num = 0;
     int fact = 0;
-    while (scanf("%d", &num) != EOF) {
-        fact = _isFactorial(1, 2, num);
-        if(fact) {
-            printf("%d=%d!\n", num, fact);
+    int retVal;
+    while ((retVal = scanf("%d", &num)) > 0) {
+        if (num < 0) {
+            fprintf(stderr, "Error: input value %d is not positive\n", num);
         } else {
-            printf("%d not factorial\n", num);
+            fact = _isFactorial(1, 2, num);
+            if (fact) {
+                printf("%d=%d!\n", num, fact);
+            } else {
+                printf("%d not factorial\n", num);
+            }
         }
+    }
+    if (retVal == 0) {
+        fprintf(stderr, "Error: input is not positive");
+        return 1;
     }
     return 0;
 }
