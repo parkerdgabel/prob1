@@ -1,11 +1,22 @@
+/*
+* File: isFactorial.c
+* Author: Parker Gabel
+* Purpose: Determines whether an input number is a factorial or not.
+*/
 #include <stdio.h>
 
+/*
+ * Recursively determines if a number is a factorial or not
+ */
 int _isFactorial(int currentFactorial, int nextNumber, int n) {
     if (currentFactorial == n) {
         return nextNumber - 1;
     } else return n < currentFactorial ? 0 : _isFactorial(currentFactorial * nextNumber, nextNumber + 1, n);
 }
 
+/*
+ * Determines whether an input number is a factorial or not.
+ */
 int main() {
     int num = 0;
     int fact = 0;
